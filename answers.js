@@ -20,7 +20,8 @@ function makeTemplate() {
 }
 
 function smoke(answer) {
-    if (answer === 'true') {
+    console.log(answer)
+    if (answer === true) {
         return 'Курю и никогда не брошу'
     } else {
         return 'Нет, но готов к экспериментам'
