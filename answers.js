@@ -20,10 +20,10 @@ function makeTemplate() {
 }
 
 function smoke(answer) {
-    console.log(answer)
     if (answer === true) {
         return 'Курю и никогда не брошу'
-    } else {
+    } 
+    if (answer === false) {
         return 'Нет, но готов к экспериментам'
     }
 }
