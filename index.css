@@ -1,0 +1,90 @@
+.page {
+    width: 100%;
+    margin: 0 auto;
+    background-color: black;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+.header {
+    max-width: 1020px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.title {
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: bold;
+    text-align: center;
+}
+
+.main {
+    max-width: 1020px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.form {
+    box-sizing: border-box;
+    width: 60%;
+    margin: 60px auto 60px;
+    padding: 30px 60px 30px;
+    background-color: grey;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form__title {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form__subtitle {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: normal;
+    text-align: center;
+}
+
+.form__question {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form__label {
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: normal;
+    text-align: start;
+}
+
+.form__input {
+    width: 100%;
+    margin: 10px auto 10px;
+    text-align: start;
+}
+
+.form__field {
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
