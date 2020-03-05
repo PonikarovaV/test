@@ -14,7 +14,8 @@ function checkList() {
     let fields = Array.from(form.querySelectorAll('.form__field'));
     let fieldInputs = getInputs(fields);
     let validationFields = validationInputs(fieldInputs);
-    let validationResult = validationFields.some(el => el === false);
+    // let validationResult = validationFields.some(el => el === false);
+    let validationResult = validationFields.includes(false);
 
     if (validationResult === true) {
         button.setAttribute('disabled', true);
@@ -45,7 +46,9 @@ function validationInputs(inputs) {
 
 function makeArray(value) {
     if (answers.music.includes(value)) {
-        return;
+        answers.music = answers.music.filter( item => {
+            return item !== value;
+        });
     } else {
         answers.music.push(value);
     }
