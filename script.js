@@ -1,19 +1,20 @@
 const form = document.forms.questions;
-const music = document.querySelector('.form__field_music');
-const smoke = document.querySelector('.form__field_smoke');
 const inputs = Array.from(form.querySelectorAll('.form__input'));
 const button = document.querySelector('.form__button');
 
+// объект для записи ответов
 let answers = {
     music: [],
     smoke: '',
     animals: ''
 }
 
+/** валидация формы, включение/отключение кнопки */
 function checkList() {
     let fields = Array.from(form.querySelectorAll('.form__field'));
     let fieldInputs = getInputs(fields);
     let validationFields = validationInputs(fieldInputs);
+    // финальный результат ваидации по всем блокам-вопросам
     let validationResult = validationFields.includes(false);
 
     if (validationResult === true) {
@@ -29,12 +30,14 @@ function checkList() {
     }
 }
 
+/** собираем инпуты блока-вопроса */
 function getInputs(formField) {
     return formField.map( item => {
         return Array.from(item.querySelectorAll('.form__input'));
     });
 }
 
+/** проверяем инпуты одного блока-вопроса */
 function validationInputs(inputs) {
     return inputs.map(inputs => {
         return inputs.some( input => { 
@@ -43,6 +46,7 @@ function validationInputs(inputs) {
     });
 }
 
+/** добавляем новый ответ/перезаписываем массив music, если убрали галоку */
 function makeArray(value) {
     if (answers.music.includes(value)) {
         answers.music = answers.music.filter( item => {
@@ -53,6 +57,7 @@ function makeArray(value) {
     }
 }
 
+/** слушатель на все инпуты */
 function listenInputs() {
     inputs.forEach( input => {
         input.addEventListener('click', (event) => {
@@ -72,6 +77,7 @@ function listenInputs() {
 
 listenInputs();
 
+/** слушатель на кнопку формы */
 function listenButton() {
     button.addEventListener('click', () => {
         event.preventDefault();
