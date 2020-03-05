@@ -21,42 +21,58 @@
             <p class="form__subtitle">Ответьте, пожалуйста, на вопросы ниже</p>
             <div class="form__field form__field_music">
                 <h3 class="form__question">Ваша любимая музыка</h3>
-
-                <label class="form__label" for="rock">Рок</label>
-                <input class="form__input" type="checkbox" name="rock" value="Рок">
-
-                <label class="form__label" for="pop">Поп</label>
-                <input class="form__input" type="checkbox" name="pop" value="Поп">
-
-                <label class="form__label" for="other">Джаз</label>
-                <input class="form__input" type="checkbox" name="other" value="Джаз">
-
-                <label class="form__label" for="other">Металл</label>
-                <input class="form__input" type="checkbox" name="other" value="Металл">
-
-                <label class="form__label" for="other">Другое</label>
-                <input class="form__input" type="checkbox" name="other" value="Другое">
+                <ul class="form__list">
+                    <li class="form__item">
+                        <label class="form__label" for="rock">Рок</label>
+                        <input class="form__input" type="checkbox" name="rock" value="Рок">
+                    </li>
+                    <li class="form__item">
+                        <label class="form__label" for="pop">Поп</label>
+                        <input class="form__input" type="checkbox" name="pop" value="Поп">
+                    </li>
+                    <li class="form__item">
+                        <label class="form__label" for="other">Джаз</label>
+                        <input class="form__input" type="checkbox" name="other" value="Джаз">
+                    </li>
+                    <li class="form__item">
+                        <label class="form__label" for="other">Металл</label>
+                        <input class="form__input" type="checkbox" name="other" value="Металл">
+                    </li>
+                    <li class="form__item">
+                        <label class="form__label" for="other">Другое</label>
+                        <input class="form__input" type="checkbox" name="other" value="Другое">
+                    </li>
+                </ul>
             </div>
             <div class="form__field form__field_smoke">
                 <h3 class="form__question">Вы курите?</h3>
-
-                    <label for="choice">Да</label>
-                    <input class="form__input" type="radio" name="choice" value="Да">
-
-                    <label for="choice">Нет</label>
-                    <input class="form__input" type="radio" name="choice" value="Нет">
+                <ul class="form__list">
+                    <li class="form__item">
+                        <label class="form__label" for="choice">Да</label>
+                        <input class="form__input" type="radio" name="choice" value="Да">
+                    </li>
+                    <li class="form__item">
+                        <label class="form__label" for="choice">Нет</label>
+                        <input class="form__input" type="radio" name="choice" value="Нет">
+                    </li>
+                </ul>
             </div>
             <div class="form__field form__field_animals">
                 <h3 class="form__question">Каких животных Вы любите?</h3>
-
-                    <label for="animals">Кошек</label>
-                    <input class="form__input" type="radio" name="animals" value="Кошек">
-
-                    <label for="choice">Собак</label>
-                    <input class="form__input" type="radio" name="animals" value="Собак">
-
-                    <label for="choice">Хомячков</label>
-                    <input class="form__input" type="radio" name="animals" value="Хомячков">
+                <ul class="form__list">
+                    <li class="form__item">
+                        <label class="form__label" for="animals">Кошек</label>
+                        <input class="form__input" type="radio" name="animals" value="Кошек">
+                    </li>
+                    <li class="form__item">
+                        <label class="form__label" for="animals">Собак</label>
+                        <input class="form__input" type="radio" name="animals" value="Собак">
+                    </li>
+                    <li class="form__item">
+                        <label class="form__label" for="animals">Хомячков</label>
+                        <input class="form__input" type="radio" name="animals" value="Хомячков">
+                    </li>
+                </ul>
             </div>
             <button class="form__button form__button_inactive" type="submit" disabled>Отправить</button> 
         </form> 
