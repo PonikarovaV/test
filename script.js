@@ -6,52 +6,63 @@ const button = document.querySelector('.form__button');
 
 let answers = {
     music: [],
-    smoke: false
-}
-
-
-function makeList(target) {
-    if (target.closest('.form__input_rock')) {
-        answers.music.push('Рок');
-    }
-    if (target.closest('.form__input_pop')) {
-        answers.music.push('Поп');
-    }
-    if (target.closest('.form__input_other')) {
-        answers.music.push('Другое');
-    }
-    if (target.closest('.form__input_smoke')) {
-        answers.smoke = true;
-    }
-
-    return answers;
+    smoke: '',
+    animals: ''
 }
 
 function checkList() {
-    let musicInputs = Array.from(music.querySelectorAll('.form__input'));
-    let smokeInputs = Array.from(smoke.querySelectorAll('.form__input'));
+    let fields = Array.from(form.querySelectorAll('.form__field'));
+    let fieldInputs = getInputs(fields);
+    let validationFields = validationInputs(fieldInputs);
+    let validationResult = validationFields.some(el => el === false);
 
-    let res1 = musicInputs.some( el => {
-        return el.checked;
-    });
-    let res2 = smokeInputs.some( el => {
-        return el.checked;
-    });
-
-    if (res1 === false || res2 === false) {
+    if (validationResult === true) {
         button.setAttribute('disabled', true);
-    } 
-    if (res1 === true && res2 === true) {
+        button.classList.add('form__button_inactive');
+        button.classList.remove('form__button_active');
+    }
+
+    if (validationResult === false) {
         button.removeAttribute('disabled', true);
-    } 
+        button.classList.remove('form__button_inactive');
+        button.classList.add('form__button_active');
+    }
 }
 
-checkList();
+function getInputs(formField) {
+    return formField.map( item => {
+        return Array.from(item.querySelectorAll('.form__input'));
+    });
+}
+
+function validationInputs(inputs) {
+    return inputs.map(inputs => {
+        return inputs.some( input => { 
+            return input.checked; 
+        });
+    });
+}
+
+function makeArray(value) {
+    if (answers.music.includes(value)) {
+        return;
+    } else {
+        answers.music.push(value);
+    }
+}
 
 function listenInputs() {
     inputs.forEach( input => {
         input.addEventListener('click', (event) => {
-            makeList(event.target);
+            if (event.target.closest('.form__field_music')) {
+                makeArray(event.target.value);
+            }
+            if (event.target.closest('.form__field_smoke')) {
+                answers.smoke = event.target.value;
+            }
+            if (event.target.closest('.form__field_animals')) {
+                answers.animals = event.target.value;
+            }
             checkList();
         });
     });
@@ -64,8 +75,7 @@ function listenButton() {
         event.preventDefault();
         localStorage.setItem('answers', JSON.stringify(answers));
         window.location = './answers.html';
-    })
+    });
 }
 
 listenButton();
-

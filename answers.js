@@ -2,7 +2,7 @@ let answers = JSON.parse(localStorage.getItem('answers'));
 
 function makeAnswers() {
     const container = document.querySelector('.answers');
-    let element = makeTemplate();
+    let element = makeTemplate(Object.keys(answers));
 
     container.insertAdjacentHTML(
         'beforeend',
@@ -10,22 +10,39 @@ function makeAnswers() {
     ); 
 }
 
-function makeTemplate() {
-    return `
-            ${answers.music.map( el => {
-                return `<li class="your-answers__item">${el}</li>`
-            }).join('')}
-            <li class="your-answers__item">${smoke(answers.smoke)}</li>
-           `
+function makeTemplate(arr) {
+    return arr.map( el => {
+        if (el === 'music') {
+            return `
+                    <h2 class="answers__title">Ваша любимая музыка</h2>
+                    <ul class="answers__list">
+                      ${answers[el].map( answer => { 
+                          return makeItemOfList(answer) 
+                        }).join('')}
+                    </ul>
+                   `
+        }
+        if (el === 'smoke') {
+            return `
+                    <h2 class="answers__title">Вы курите?</h2>
+                    <ul class="answers__list">
+                      ${makeItemOfList(answers[el])}
+                    </ul>
+                   `
+        }
+        if (el === 'animals') {
+            return `
+                    <h2 class="answers__title">Каких животных Вы любите?</h2>
+                    <ul class="answers__list">
+                      ${makeItemOfList(answers[el])}
+                    </ul>
+                   `
+        }
+    }).join('');
 }
 
-function smoke(answer) {
-    if (answer === true) {
-        return 'Курю и никогда не брошу'
-    } 
-    if (answer === false) {
-        return 'Нет, но готов к экспериментам'
-    }
+function makeItemOfList(element) {
+    return `<li class="your-answers__item">${element}</li>`
 }
 
 makeAnswers();

@@ -12,38 +12,54 @@
 
 <body class="page">
     <header class="header">
-        <h1 class="title">Опросник</h1>
+        <a class="header__link" href="#"><h1 class="title">Опросник</h1></a>
     </header>
 
     <main class="main">
         <form class="form" name="questions">
-            <h2 class="form__title">Опросник</h2>
+            <h2 class="form__title">Вопросы</h2>
             <p class="form__subtitle">Ответьте, пожалуйста, на вопросы ниже</p>
             <div class="form__field form__field_music">
                 <h3 class="form__question">Ваша любимая музыка</h3>
 
-                    <label class="form__label" for="rock">Рок</label>
-                    <input class="form__input form__input_rock" type="checkbox" name="rock">
+                <label class="form__label" for="rock">Рок</label>
+                <input class="form__input" type="checkbox" name="rock" value="Рок">
 
-                    <label class="form__label" for="pop">Поп</label>
-                    <input class="form__input form__input_pop" type="checkbox" name="pop">
+                <label class="form__label" for="pop">Поп</label>
+                <input class="form__input" type="checkbox" name="pop" value="Поп">
 
-                    <label class="form__label" for="other">Другое</label>
-                    <input class="form__input form__input_other" type="checkbox" name="other">
+                <label class="form__label" for="other">Джаз</label>
+                <input class="form__input" type="checkbox" name="other" value="Джаз">
+
+                <label class="form__label" for="other">Металл</label>
+                <input class="form__input" type="checkbox" name="other" value="Металл">
+
+                <label class="form__label" for="other">Другое</label>
+                <input class="form__input" type="checkbox" name="other" value="Другое">
             </div>
             <div class="form__field form__field_smoke">
                 <h3 class="form__question">Вы курите?</h3>
+
                     <label for="choice">Да</label>
-                    <input class="form__input form__input_smoke" type="radio" name="choice">
+                    <input class="form__input" type="radio" name="choice" value="Да">
+
                     <label for="choice">Нет</label>
-                    <input class="form__input form__input_notsmoke" type="radio" name="choice">
+                    <input class="form__input" type="radio" name="choice" value="Нет">
             </div>
-            <button class="form__button" type="submit" disabled>Отправить</button> 
-          </form> 
+            <div class="form__field form__field_animals">
+                <h3 class="form__question">Каких животных Вы любите?</h3>
 
-          <ul class="answers">
+                    <label for="animals">Кошек</label>
+                    <input class="form__input" type="radio" name="animals" value="Кошек">
 
-        </ul>
+                    <label for="choice">Собак</label>
+                    <input class="form__input" type="radio" name="animals" value="Собак">
+
+                    <label for="choice">Хомячков</label>
+                    <input class="form__input" type="radio" name="animals" value="Хомячков">
+            </div>
+            <button class="form__button form__button_inactive" type="submit" disabled>Отправить</button> 
+        </form> 
     </main>
 <script src="./script.js"></script>
 </body>
